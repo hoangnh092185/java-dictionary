@@ -1,16 +1,19 @@
-<h1>Word Definition</h1>
+<h1>Word Definition of $definition.getDefinition()</h1>
 
-#foreach ($word in $words)
-<h4>insert word definition here</h4>
-#end
+<ul>
+  #foreach ($definition in $definitions)
+  <li><h4>$definition.getDefinition()</h4></li>
+  #end
+</ul>
 
+<form class="form-group" action="/word/$word.getId()" method="post">
+  <input id="definitionId" type="hidden" name="definitionId" value="$word.getId()">
 
-//Submit more Definition
-
-<form class="" action="index.html" method="post">
-  <div class="">
-    <label for=""></label>
-    <input type="button" name="name" value="">
+  <div class="form-group">
+    <label for="definition"></label>
+    <input id="definition" type="text" name="definition" value="">
   </div>
-  <button type="submit" name="button"></button>
+  <button type="submit" name="button">Add definition</button>
 </form>
+
+<a href="/">Homepage</a>
