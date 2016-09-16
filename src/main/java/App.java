@@ -14,12 +14,17 @@ public class App {
     //homepage
       get("/", (request, response) -> {
         Map<String, Object> model = new HashMap<String, Object>();
-
-      
+        model.put("words", Word.all());
         model.put("template", "templates/index.vtl");
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-
+      post("/", (request, response)->{
+      Map<String, Object> model = new HashMap<String, Object>();
+      Word aWord = new Word(request.queryParams("word"));
+      model.put("words", Word.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
   }
 }
