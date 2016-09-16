@@ -18,14 +18,14 @@ public class WordTest{
   @Test
   public void all_returnsAllInstantcesOfWord_true(){
     Word firstWord = new Word("Home");
-    Word secondWord = new Word("work");
+    Word secondWord = new Word("Work");
     assertEquals(true, Word.all().contains(firstWord));
     assertEquals(true, Word.all().contains(secondWord));
   }
   @Test
   public void clear_returnsAllWordFormListSize_0(){
     Word firstWord = new Word("Home");
-    Word secondWord = new Word("work");
+    Word secondWord = new Word("Work");
     Word.clear();
     assertEquals(0, Word.all().size());
   }
@@ -57,7 +57,6 @@ public class WordTest{
     testWord.addDefinition(testDefinition);
     assertTrue(testWord.getDefinitions().contains(testDefinition));
   }
-
   @After
   public void tearDown() {
     Word.clear();
